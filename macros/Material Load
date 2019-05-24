@@ -1,0 +1,18 @@
+T0
+G1 X-12.5 Y20 F4000
+M291 P"Feed material until resistance is met, then press ""OK"". Preheat the nozzle first if you want to prime material at the end." R"Load Material" S3
+M83
+M302 P1                                                                       ; Enable cold extrusion
+G1 E50 F1000
+M913 E50
+G1 S1 E150 F2000
+M913 E100
+M302 S160 R110                                                                ; Disable cold extrusion
+T0
+M291 P"Waiting to reach temperature" R"Load Material" S1
+M116 H1                                                                       ; Wait for hotend temp
+M291 P"Priming please wait..." R"Load Material" S1 T0
+G1 E45 F60
+M98 P/sys/wipe.g                                                              ; Wipe
+M291 P"Material load complete!" R"Load Material" S1
+M300 S250 P1000	                                                              ; Play beep notification

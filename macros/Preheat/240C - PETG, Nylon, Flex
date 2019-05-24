@@ -1,0 +1,3 @@
+;240C Preheat
+T0
+M104 S240                                                                     ; Set extruder temp

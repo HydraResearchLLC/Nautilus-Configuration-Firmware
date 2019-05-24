@@ -1,0 +1,2 @@
+M291 P"Are you sure you want to reset all machine calibrations? Press ""OK"" to continue ""cancel"" to abort" R"Reset All Calibrations" S3
+M502                                                                          ; Reset config-override.g

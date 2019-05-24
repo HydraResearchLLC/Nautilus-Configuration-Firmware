@@ -1,0 +1,3 @@
+;280C Preheat
+T0
+M104 S280; set extruder temp

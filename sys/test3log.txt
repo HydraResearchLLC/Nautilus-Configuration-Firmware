@@ -1,0 +1,5 @@
+power up + 00:00:32 Event logging started
+power up + 00:00:32 Error: GCodes: Attempt to read a GCode int array that is too long: M563 P2 D0:1 H1:2 
+power up + 00:00:35 Error: Temperature reading fault on heater 2: unknown temperature sensor channel
+power up + 00:07:14 HTTP client 192.168.1.116 login succeeded
+2018-08-14 15:43:30 Date and time set at power up + 00:07:14

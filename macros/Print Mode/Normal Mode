@@ -1,0 +1,3 @@
+M913 X100 Y100 Z100                                                           ; Set motor currents to 100%
+M201 X4000 Y4000 Z250 E4000                                                   ; Set accelerations (mm/s^2)
+M220 S100                                                                     ; Set print speed to 100%M98  P/sys/mprintmodenormal.g

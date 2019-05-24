@@ -1,0 +1,4 @@
+M291 P"Begin hotend temperature tuning (6 minutes)? DO NOT enter any other commands until you see the completion message." R"Hotend Temperature Tuning" S3
+M303 H1 S265                                                                  ; PID tuning at 265C
+M291 P"Press ""Ok"" to save tuning results" R"Heatend Temperature Tuning" S3
+M500                                                                          ; Save results to config-overide.g

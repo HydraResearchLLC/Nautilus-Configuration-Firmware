@@ -1,0 +1,3 @@
+M220 S70                                                                      ; Decrease print speed to 70%
+M201 X2500 Y2500 Z250 E4000                                                   ; Set accelerations (mm/s^2)
+M913 X70 Y70                                                                  ; Decrease motor currents to 70%

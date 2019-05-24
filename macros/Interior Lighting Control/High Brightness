@@ -1,0 +1,2 @@
+M307 H2 A-1 C-1 D-1					                                                  ; Configure heater 2 for LEDs lighting
+M42 P2 S255				                                                          	; Set interior lighting to high
