@@ -1,0 +1,14 @@
+M291 P"Begin heat bed temperature tuning ~15 minutes? DO NOT enter any other commands during this process." R"Heat Bed Temperature Tuning" S3
+M140 S0                                                                       ; Set heat bed active temp
+G1 Z220                                                                       ; Drop Z
+M291 P"Calibration in progress ~15 minutes. DO NOT enter any commands or power OFF the printer." R"Heat Bed Temperature Tuning" S0 T1200
+M116 H0 S40                                                                   ; Wait for stable start temp
+M291 P"Calibration in progress ~15 minutes. DO NOT enter any commands or power OFF the printer." R"Heat Bed Temperature Tuning" S0 T1200
+M303 H0 S120                                                                  ; PID tuning target temp
+M291 P"Calibration in progress ~15 minutes. DO NOT enter any commands or power OFF the printer." R"Heat Bed Temperature Tuning" S0 T1200
+G4 P0                                                                         ; Finish all current moves
+M291 P"Calibration in progress ~15 minutes. DO NOT enter any commands or power OFF the printer." R"Heat Bed Temperature Tuning" S0 T1200
+G4 S900                                                                       ; Wait
+M500                                                                          ; Save results to config-overide.g
+M291 P"Calibration Complete!" R"Heat Bed Temperature Tuning" S3
+M500                                                                          ; Save results to config-overide.g

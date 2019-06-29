@@ -1,3 +1,4 @@
 ;220C Preheat
-T0
-M104 S220                                                                     ; Set extruder temp
+G10 P0 S220 R0                                                                ; Set extruder temp
+T-1
+M140 S50                                                                      ; Set bed temp

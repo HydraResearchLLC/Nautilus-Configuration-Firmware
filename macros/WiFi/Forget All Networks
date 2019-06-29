@@ -1,9 +1,4 @@
 M291 P"Are you sure you want to forget all WiFi networks? Press ""OK"" to forget networks" R"Forget All Networks" S3
-M552 S0
-M588 S”*”
-M552 S-1
-M552 S0
-M122
-M552 S1
-M291 P"A Restart is required for the changes to take effect. Press """OK"" to restart now, "Cancel" to restart later." R"Forget All Networks" S2
-M999
+M552 S0                                                                       ; Set WiFi module to idle
+M588 S"*"                                                                     ; Forget remembered networks
+M587                                                                          ; Check remembered networks to make sure

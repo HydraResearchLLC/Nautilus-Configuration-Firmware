@@ -1,3 +1,4 @@
 ;300C Preheat
-T0
-M104 S300; set extruder temp
+G10 P0 S300 R0                                                                ; Set extruder temp
+T-1
+M140 S50                                                                      ; Set bed temp

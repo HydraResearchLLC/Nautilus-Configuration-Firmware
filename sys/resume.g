@@ -1,6 +1,8 @@
 ; called before a print from SD card is resumed
 
+T R1                                                                          ; Call last active tool
 G1 X-12.5 Y0 F6000                                                            ; Position over prime bucket
+M116                                                                          ; Wait for temps
 G1 E15 F100                                                                   ; Prime
 G1 E-1 F2200                                                                  ; Retract
 G91                                                                           ; Relative positioning

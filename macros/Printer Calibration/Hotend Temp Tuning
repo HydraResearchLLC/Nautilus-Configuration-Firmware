@@ -1,0 +1,14 @@
+M291 P"Begin hotend temperature tuning ~6 minutes? DO NOT enter any other commands during this process." R"Hotend Temperature Tuning" S3
+G10 P0 S0                                                                     ; Set hotend active temp
+G1 Z220 X100 Y100 F6000                                                       ; Position for tuning
+M291 P"Calibration in progress ~6 minutes. DO NOT enter any commands or power OFF the printer." R"Hotend Temperature Tuning" S0 T600
+M116 P0 S40                                                                   ; Wait for stable start temp
+M291 P"Calibration in progress ~6 minutes. DO NOT enter any commands or power OFF the printer." R"Hotend Temperature Tuning" S0 T600
+M303 H1 S265                                                                  ; PID tuning target temp
+M291 P"Calibration in progress ~6 minutes. DO NOT enter any commands or power OFF the printer." R"Hotend Temperature Tuning" S0 T600
+G4 P0                                                                         ; Finish all current moves
+M291 P"Calibration in progress ~6 minutes. DO NOT enter any commands or power OFF the printer." R"Hotend Temperature Tuning" S0 T600
+G4 S360                                                                       ; Wait
+M500                                                                          ; Save results to config-overide.g
+M291 P"Calibration Complete!" R"Heatend Temperature Tuning" S2
+M500                                                                          ; Save results to config-overide.g

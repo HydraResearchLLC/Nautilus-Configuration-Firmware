@@ -1,5 +1,5 @@
-; Configuration file for Duet WiFi (firmware version 2.02)
-; executed by the firmware on start-up
+; Configuration file for Duet WiFi (firmware version 2.03)
+; Executed by the firmware on start-up
 ; Created by Hydra Research LLC specifically for the Nautilus 3D Printer
 
 ; GENERAL
@@ -24,12 +24,12 @@ M569 P4 S1                                              ; Drive 4 goes forwards
 
 ; MOTION CONFIG
 M350 X64 Y64 Z128 E128 I0                               ; Configure microstepping without interpolation
-M92 X800 Y800 Z12800 E2218                               ; Set steps per mm (E-true=2335, E-effective=2218 )
+M92 X800 Y800 Z12800 E2218                              ; Set steps per mm (E-true=2335, E-effective=2218 )
 M566 X420 Y420 Z25 E800                                 ; Set maximum instantaneous speed changes (mm/min), Cura will override this
-M203 X15000 Y15000 Z550 E12000                          ; Set maximum speeds (mm/min)
-M201 X4000 Y4000 Z250 E4000                             ; Set accelerations (mm/s^2)
-M204 P800 T3000                                         ; Set printing and travel accelerations, Cura will override this
-M906 X1350 Y1350 Z1000 E1200 I80                         ; Set motor currents (mA) and motor idle factor in per cent
+M203 X15000 Y15000 Z500 E12000                          ; Set maximum speeds (mm/min)
+M201 X3000 Y3000 Z250 E4000                             ; Set accelerations (mm/s^2)
+M204 P800 T2000                                         ; Set printing and travel accelerations, Cura will override this
+M906 X1350 Y1350 Z1200 E1200 I80                        ; Set motor currents (mA) and motor idle factor in per cent
 M917 X80 Y80 Z100 E70                                   ; Set standstill/low speed motor current as percent
 M84 S30                                                 ; Set idle timeout
 
@@ -50,7 +50,7 @@ M591 D0 P1 C3 S1                                        ; Configure simple filam
 
 ; Z-PROBE
 M307 H3 A-1 C-1 D-1                                     ; Configure heater 3 for servo control
-M558 P9 H4 F400 T12000 A5 S0.012                        ; Set Z-probe type BLTouch
+M558 P9 H3 R0.25 F375 T12000 A5 S0.012                  ; Set Z-probe type BLTouch
 G31 X12 Y-29 Z2 P25                                     ; Set Z-probe trigger value, offset, and trigger height
 M557 X5:202 Y5:171 S65.66:55.33                         ; Define mesh grid
 
@@ -60,8 +60,7 @@ M307 H2 A-1 C-1 D-1                                     ; Configure heater 2 for
 M42 P2 S255                                             ; Turn interior lighting on
 M305 P0 T100000 B3950 C0 R4700                          ; Set thermistor + ADC parameters for heater 0
 M143 H0 S127                                            ; Set temperature limit for heater 0 to 127C
-;M305 P1 X200                                            ; Configure PT100 for heater 1
-M305 P1 X501 R4700                                     ; Configure PT1000 for heater 1
+M305 P1 X501 R4700                                      ; Configure PT1000 for heater 1
 M143 H1 S308                                            ; Set temperature limit for heater 1 to 300C
 M570 H0 P10 T10 S.1                                     ; Heater 0 fault detection
 M570 H1 P10 T10 S.1                                     ; Heater 1 fault detection

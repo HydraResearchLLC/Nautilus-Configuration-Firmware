@@ -1,4 +1,0 @@
-M291 P"Begin heat bed temperature tuning (15 minutes)? DO NOT enter any other commands until you see the completion message." R"Heat Bed Temperature Tuning" S3
-M303 H0 S120                                                                   ; PID Tuning at 120C
-M291 P"Press ""Ok"" to save tuning results" R"Heat Bed Temperature Tuning" S3
-M500                                                                          ; Save results to config-overide.g
