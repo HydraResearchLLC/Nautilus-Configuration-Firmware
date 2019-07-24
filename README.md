@@ -1,4 +1,4 @@
-# Nautilus-Firmware
+# Nautilus-Configuration/Firmware
 
 Custom version of the RepRapFirmware created by David Crocker (dc42): https://github.com/dc42
 
