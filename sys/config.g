@@ -27,9 +27,9 @@ M350 X64 Y64 Z128 E128 I0                               ; Configure microsteppin
 M92 X800 Y800 Z12800 E2218                              ; Set steps per mm (E-true=2335, E-effective=2218 )
 M566 X420 Y420 Z25 E800                                 ; Set maximum instantaneous speed changes (mm/min), Cura will override this
 M203 X15000 Y15000 Z500 E12000                          ; Set maximum speeds (mm/min)
-M201 X3000 Y3000 Z250 E4000                             ; Set accelerations (mm/s^2)
+M201 X2200 Y2200 Z250 E1250                             ; Set accelerations (mm/s^2)
 M204 P800 T2000                                         ; Set printing and travel accelerations, Cura will override this
-M906 X1350 Y1350 Z1200 E1200 I80                        ; Set motor currents (mA) and motor idle factor in per cent
+M906 X1350 Y1350 Z1100 E1200 I80                        ; Set motor currents (mA) and motor idle factor in per cent
 M917 X80 Y80 Z100 E70                                   ; Set standstill/low speed motor current as percent
 M84 S30                                                 ; Set idle timeout
 
@@ -84,5 +84,6 @@ M911 S22.0 R23.0 P"M913 X0 Y0 G91 M83 G1 Z3 E-5 F1000"  ; Set voltage thresholds
 
 ; INITIALIZE
 M98  P/sys/initialize.g                                 ; Call initialization system file
+M501                                                    ; Read stored parameters from sys/config-override
 
 ---------

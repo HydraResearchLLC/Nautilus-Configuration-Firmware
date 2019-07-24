@@ -4,4 +4,4 @@ M98  P/sys/homez.g
 M98  P/sys/homex.g
 M98  P/sys/homey.g
 T0                                                                            ; Activate tool 0
-M501                                                                          ; Read stored parameters from sys/config-override
+M98 P/sys/probereset.g                                                        ; Reset BLTouch

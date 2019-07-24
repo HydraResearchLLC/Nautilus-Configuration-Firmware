@@ -21,5 +21,3 @@ M98 P/sys/wipe.g                                                              ; 
 T-1
 M300 S250 P1000                                                               ; Play notification beep
 M291 P"You may now remove the material. You may need to pull quite firmly on the filament." R"Unload Material" S2
-M291 P"Would you like to load a new material now?" R"Unload Material" S3
-M98 P/macros/Material Load

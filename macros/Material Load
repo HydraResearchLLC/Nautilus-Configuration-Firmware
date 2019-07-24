@@ -5,7 +5,7 @@ T0
 M83
 M302 P1                                                                       ; Enable cold extrusion
 G1 E50 F1000                                                                  ; Extrude
-M913 E50                                                                      ; Reduce motor current
+M913 E80                                                                      ; Reduce motor current
 G1 S1 E150 F2000                                                              ; Stall guard load
 M913 E100                                                                     ; Return motor current to normal
 M302 S160 R110                                                                ; Disable cold extrusion
