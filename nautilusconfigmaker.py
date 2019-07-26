@@ -30,7 +30,7 @@ with tempfile.TemporaryDirectory() as configfolder:
         dwczip.extractall(configfolder)
     with zipfile.ZipFile(os.path.join(path, duet)) as duetzip:
         duetzip.extractall(configfolder)
-    with zipfile.ZipFile(os.path.join(path,'Nautilus_Test_Configuration_'+versNo+'.zip'),'w') as configzip:
+    with zipfile.ZipFile(os.path.join(path,'Nautilus_Configuration_'+versNo+'.zip'),'w') as configzip:
         contents = fileList(configfolder)
         for item in contents:
             if 'Icon' in item:
