@@ -12,7 +12,7 @@ def fileList(fileName):
         files += [os.path.join(dirpath, file) for file in filenames]
     return files
 
-print("What version is this config? ")
+print("What version are these macros? ")
 versNo = str(input())
 path = os.path.dirname(os.path.realpath(__file__))
 mac = 'macros'
