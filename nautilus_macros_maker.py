@@ -19,21 +19,18 @@ mac = 'macros'
 
 with tempfile.TemporaryDirectory() as macfolder:
     copy_tree(os.path.join(path,mac),macfolder)
-    with zipfile.ZipFile(os.path.join(path,'Nautilus_Macros_'+versNo+'.zip'),'w') as maczip:
+    with zipfile.ZipFile(os.path.join(path, "Release Assets",'Nautilus_Macros_'+versNo+'.zip'),'a') as maczip:
         contents = fileList(macfolder)
         for item in contents:
-            if 'Icon' in item:
-                contents.remove(item)
-                continue
-            if item!=os.path.join(macfolder, 'desktop.ini'):
-                f = open(item,'r+')
-                lines = f.readlines()
-                f.seek(0)
-                f.write('; Configuration for the Nautilus 3D printer by Hydra Research \n')
-                f.write('; Version: '+versNo+' \n')
-                for line in lines:
-                    f.write(line)
-                f.close()
-                #print(item)
-                maczip.write(os.path.join(macfolder, item), os.path.relpath(item, macfolder))
+            if 'desktop.ini' in item:
+                    continue
+            f = open(item,'r+')
+            lines = f.readlines()
+            f.seek(0)
+            f.write('; Macro for the Nautilus 3D printer by Hydra Research \n')
+            f.write('; Version: '+versNo+' \n \n')
+            for line in lines:
+                f.write(line)
+            f.close()
+            maczip.write(os.path.join(macfolder, item), os.path.relpath(item, macfolder))
     maczip.close()

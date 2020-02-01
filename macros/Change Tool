@@ -1,5 +1,12 @@
 M291 P"Is your material unloaded? If not, press ""Cancel"" and unload the material first." R"Change Tool" S3
+T0                                                                            ; Activate tool 0
+G10 P0 S40 R0                                                                 ; Set cold temp
+M291 P"Cooling to safe tool removal temperature." R"Change Tool" S1 T0
+M106 S255                                                                     ; Enable Part cooling fan to speed up cool down
 G1 X30 Y5 Z223 F6000                                                          ; Position for tool removal
+M116 H1 S30                                                                   ; Wait for hotend temp
+T-1                                                                           ; Deactivate all tools
+M106 S0                                                                       ; Disabel Part cooling fan
+M300 S250 P1000                                                               ; Play notification beep
 M291 P"Please change tool, then press ""OK""" R"Change Tool" S3
 M562 P1                                                                       ; Reset heater 1 fault
-;M98  P/sys/mzoffset.g

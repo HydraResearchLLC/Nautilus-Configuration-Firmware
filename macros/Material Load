@@ -8,7 +8,7 @@ G1 E50 F1000                                                                  ; 
 M913 E80                                                                      ; Reduce motor current
 G1 S1 E150 F2000                                                              ; Stall guard load
 M913 E100                                                                     ; Return motor current to normal
-M302 S160 R110                                                                ; Disable cold extrusion
+M302 P0                                                                       ; Disable cold extrusion
 T0
 M291 P"Waiting to reach temperature" R"Load Material" S1
 M116 H1 S10                                                                   ; Wait for hotend temp
