@@ -17,33 +17,48 @@ def fileList(fileName):
     return files
 
 
-dwc_zip_url = None
+DWCZipUrl = None
 path = os.path.dirname(os.path.realpath(__file__))
-Duet2FirmwareUrl = json.loads(requests.get('https://api.github.com/repos/dc42/reprapfirmware/releases/latest').text)['assets'][0]['browser_download_url']
+Duet2FirmwareRelUrl = json.loads(requests.get('https://api.github.com/repos/dc42/reprapfirmware/releases').text)
 DuetWifiServerUrl = json.loads(requests.get('https://api.github.com/repos/dc42/reprapfirmware/releases/latest').text)['assets'][4]['browser_download_url']
 DuetFirmVers = json.loads(requests.get('https://api.github.com/repos/dc42/reprapfirmware/releases/latest').text)['tag_name']
-dwc_rel_url = json.loads(requests.get('https://api.github.com/repos/chrishamm/duetwebcontrol/releases').text)
+DWCRelUrl = json.loads(requests.get('https://api.github.com/repos/chrishamm/duetwebcontrol/releases').text)
 
 print("Building Nautilus Configuration for the Duet2")
 print("What version is this config?")
 versNo = str(input())
-print("Downloading...")
+print("Downloading Wifi Server...")
 
-urllib.request.urlretrieve(Duet2FirmwareUrl,os.path.join(path,'Downloaded Assets',os.path.basename(Duet2FirmwareUrl)))
 urllib.request.urlretrieve(DuetWifiServerUrl,os.path.join(path,'Downloaded Assets',os.path.basename(DuetWifiServerUrl)))
 
 print('Which DWC version do you want? Type version number in form x.x.x then hit enter')
-entry = str(input())
-for i in range(10):
-    newVersionfull = json.dumps(dwc_rel_url[i]['tag_name'])
-    if entry in newVersionfull:
-        dwc_zip_url = dwc_rel_url[i]['assets'][1]['browser_download_url']
-        print('Got it, we\'re downloading from '+dwc_zip_url+'...')
-        urllib.request.urlretrieve(dwc_zip_url,os.path.join(path,'Downloaded Assets',os.path.basename(dwc_zip_url)))
-if dwc_zip_url == None:
-    print('Unable to find DWC version '+entry)
+DWCentry = str(input())
+print('Downloading DWC...')
 
-dwc = os.path.join('Downloaded Assets',os.path.basename(dwc_zip_url))
+for i in range(10):
+    newVersionfull = json.dumps(DWCRelUrl[i]['tag_name'])
+    if DWCentry in newVersionfull:
+        DWCZipUrl = DWCRelUrl[i]['assets'][1]['browser_download_url']
+        print('Got it, we\'re downloading from '+DWCZipUrl+'...')
+        urllib.request.urlretrieve(DWCZipUrl, os.path.join(path,'Downloaded Assets', os.path.basename(DWCZipUrl)))
+if DWCZipUrl == None:
+    print('Unable to find DWC version '+DWCentry)
+
+print('Which Duet firmware version do you want? Type version number in form x.x then hit enter')
+DuetFirmwareEntry = str(input())
+print('Downloading Duet Firmware')
+
+for i in range(10):
+    newVersionfull = json.dumps(Duet2FirmwareRelUrl[i]['tag_name'])
+    if DuetFirmwareEntry in newVersionfull:
+        Duet2FirmwareUrl = Duet2FirmwareRelUrl[i]['assets'][1]['browser_download_url']
+        print('Got it, we\'re downloading from '+Duet2FirmwareUrl+'...')
+        urllib.request.urlretrieve(Duet2FirmwareUrl, os.path.join(path,'Downloaded Assets', os.path.basename(Duet2FirmwareUrl)))
+        break
+if Duet2FirmwareUrl == None:
+    print('Unable to find Duet Firmware version '+DuetFirmwareEntry)
+
+dwc = os.path.join('Downloaded Assets',os.path.basename(DWCZipUrl))
 duetfirm = os.path.join(path,'Downloaded Assets',os.path.basename(Duet2FirmwareUrl))
 duetwifi = os.path.join(path,'Downloaded Assets',os.path.basename(DuetWifiServerUrl))
 sys = 'sys'
