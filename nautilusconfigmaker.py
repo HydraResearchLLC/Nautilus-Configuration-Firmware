@@ -51,7 +51,8 @@ print('Downloading Duet Firmware')
 for i in range(10):
     newVersionfull = json.dumps(Duet2FirmwareRelUrl[i]['tag_name'])
     if DuetFirmwareEntry in newVersionfull:
-        Duet2FirmwareUrl = Duet2FirmwareRelUrl[i]['assets'][1]['browser_download_url']
+        #John: download the correct firmware bin Duet2Combined. Did this by changing [1] to [0] as Duet2Combined is the first item in the assets list
+        Duet2FirmwareUrl = Duet2FirmwareRelUrl[i]['assets'][0]['browser_download_url']
         print('Got it, we\'re downloading from '+Duet2FirmwareUrl+'...')
         urllib.request.urlretrieve(Duet2FirmwareUrl, os.path.join(path,'Downloaded Assets', os.path.basename(Duet2FirmwareUrl)))
         break
